@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Doctor Edit</title>
+        <meta name="description" content="">
+
+        <link rel="stylesheet" href="css/lib/bootstrap.min.css" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Raleway|Roboto|Museo+Sans|Muli|PT+Sans" rel="stylesheet">
+        <!-- <link rel="stylesheet" href="css/main.css" integrity="" crossorigin="anonymous"> -->
+        <style>
+            .added { background-color: lightgreen; }
+            .removed { text-decoration: line-through; background-color: pink; }
+        </style>
+
+        <script src="js/lib/jquery-3.7.1.min.js" integrity="" crossorigin="anonymous"></script>
+        <script src="js/lib/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
+        <script src="js/lib/diff.min.js"></script>
+        <script src="js/main.js" integrity="" crossorigin="anonymous"></script>
+    </head>
+    
+    <body class="p-4">
+        <div class="container">
+            <div class="d-flex justify-content-between mb-3">
+                <div class="d-flex">
+                    <div class="me-3">
+                        <label for="conditionSelect" class="form-label">Condition:</label>
+                        <select id="conditionSelect" class="form-select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>                        
+                    </div>
+                    <div>
+                        <label for="questionSelect" class="form-label">Question:</label>
+                        <select id="questionSelect" class="form-select">
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="questionText" class="form-label">Question:</label>
+                <input type="text" id="questionText" class="form-control" readonly>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Answer:</label>
+                <div id="answerText" class="form-control" style="min-height: 60px;"></div>
+            </div>
+
+            <div id="extraControls" class="mb-3" style="display: none;">
+                <button class="btn btn-secondary me-2" id="leftBtn">Left</button>
+                <button class="btn btn-secondary" id="rightBtn">Right</button>
+            </div>
+
+            <div id="feedbackSection" class="mb-3" style="display: none;">
+                <label class="form-label">Feedback:</label>
+                <textarea id="feedbackText" class="form-control" rows="2"></textarea>
+                <button class="btn btn-success mt-2" id="sendBtn">Send</button>
+            </div>
+            
+            <button class="btn btn-primary" id="submitBtn">Submit</button>
+        </div>
+    </body>    
+</html>
