@@ -24,7 +24,6 @@ $(document).ready(function () {
         if (feedback) {
             answerVersions[selectedQ].push(answerVersions[selectedQ][currentVersionIndex[selectedQ]] + " " + feedback);
             currentVersionIndex[selectedQ] = answerVersions[selectedQ].length - 1;
-            // $("#answerText").val(answerVersions[selectedQ][currentVersionIndex[selectedQ]]);
             displayAnswerDiff(selectedQ);
             $("#feedbackText").val("");
         }
@@ -47,7 +46,7 @@ $(document).ready(function () {
     });
     
     $("#submitBtn").click(function () {
-        alert("Answer submitted: " + $("#answerText").val());
+        alert("Answer submitted: " + $("#answerText").text());
     });
 });
 
@@ -68,12 +67,11 @@ function updateQuestionAndAnswer() {
     if (record) {
         $("#questionText").val(record.question);
         if (selectedCondition == "1") {
-            $("#answerText").val(""); // Leave empty for condition 1
+            $("#answerText").text("");
         } else if (selectedCondition == "2") {
-            $("#answerText").val(answerVersions[selectedQ][0]);
+            $("#answerText").text(answerVersions[selectedQ][0]);
         } else if (selectedCondition == "3") {
             displayAnswerDiff(selectedQ);
-            // $("#answerText").val(answerVersions[selectedQ][currentVersionIndex[selectedQ]]);
         }   
     }
     if (selectedCondition == "3") {
@@ -90,9 +88,12 @@ function displayAnswerDiff(selectedQ) {
     const previousVersion = index > 0 ? answerVersions[selectedQ][index - 1] : "";
     const currentVersion = answerVersions[selectedQ][index];
     
-    let diffHtml = diffText(previousVersion, currentVersion);
-    console.log(diffHtml);
-    $("#answerText").html(diffHtml);
+    if (index === 0) {
+        $("#answerText").text(currentVersion);
+    } else {
+        let diffHtml = diffText(previousVersion, currentVersion);
+        $("#answerText").html(diffHtml);
+    }
 }
 
 function diffText(oldText, newText) {
@@ -101,9 +102,9 @@ function diffText(oldText, newText) {
     
     diff.forEach(part => {
         if (part.added) {
-            result += `<span class="added">+${part.value}</span> `;
+            result += `<span class="added">${part.value}</span> `;
         } else if (part.removed) {
-            result += `<span class="removed">-${part.value}</span> `;
+            result += `<span class="removed">${part.value}</span> `;
         } else {
             result += part.value;
         }

@@ -10,11 +10,7 @@
 
         <link rel="stylesheet" href="css/lib/bootstrap.min.css" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans|Raleway|Roboto|Museo+Sans|Muli|PT+Sans" rel="stylesheet">
-        <!-- <link rel="stylesheet" href="css/main.css" integrity="" crossorigin="anonymous"> -->
-        <style>
-            .added { background-color: lightgreen; }
-            .removed { text-decoration: line-through; background-color: pink; }
-        </style>
+        <link rel="stylesheet" href="css/main.css" integrity="" crossorigin="anonymous">
 
         <script src="js/lib/jquery-3.7.1.min.js" integrity="" crossorigin="anonymous"></script>
         <script src="js/lib/bootstrap.min.js" integrity="" crossorigin="anonymous"></script>
@@ -22,11 +18,13 @@
         <script src="js/main.js" integrity="" crossorigin="anonymous"></script>
     </head>
     
-    <body class="p-4">
-        <div class="container">
-            <div class="d-flex justify-content-between mb-3">
-                <div class="d-flex">
-                    <div class="me-3">
+    <body class="p-4 p-md-5">
+        <div class="container bg-white shadow-sm rounded-3 p-4">
+            <h1 class="h3 mb-4 text-primary">Doctor Edit</h1>
+
+            <div class="d-flex flex-column flex-md-row justify-content-between mb-4">
+                <div class="d-flex flex-column flex-md-row gap-3">
+                    <div>
                         <label for="conditionSelect" class="form-label">Condition:</label>
                         <select id="conditionSelect" class="form-select">
                             <option value="1">1</option>
@@ -43,28 +41,32 @@
                 </div>
             </div>
             
-            <div class="mb-3">
+            <div class="mb-4">
                 <label for="questionText" class="form-label">Question:</label>
                 <input type="text" id="questionText" class="form-control" readonly>
             </div>
-            
-            <div class="mb-3">
+            <br />
+            <div class="mb-4">
                 <label class="form-label">Answer:</label>
-                <div id="answerText" class="form-control" style="min-height: 60px;"></div>
-            </div>
-
-            <div id="extraControls" class="mb-3" style="display: none;">
-                <button class="btn btn-secondary me-2" id="leftBtn">Left</button>
-                <button class="btn btn-secondary" id="rightBtn">Right</button>
-            </div>
-
-            <div id="feedbackSection" class="mb-3" style="display: none;">
-                <label class="form-label">Feedback:</label>
-                <textarea id="feedbackText" class="form-control" rows="2"></textarea>
-                <button class="btn btn-success mt-2" id="sendBtn">Send</button>
+                <div id="answerText" class="form-control shadow-sm" style="min-height: 80px;"></div>
             </div>
             
-            <button class="btn btn-primary" id="submitBtn">Submit</button>
+            <div id="extraControls" class="text-center mb-4 d-flex justify-content-center gap-2" style="display: none;">
+                <button class="btn btn-secondary" id="leftBtn">&lt;</button>
+                <button class="btn btn-secondary" id="rightBtn">&gt;</button>
+            </div>
+            
+            <div class="text-center">
+                <button class="btn btn-primary" id="submitBtn">Submit</button>
+            </div>
+
+            <div id="feedbackSection" class="mb-4" style="display: none;">
+                <label class="form-label">Feedback:</label>
+                <textarea id="feedbackText" class="form-control mb-4" rows="3"></textarea>
+                <div class="text-center">
+                    <button class="btn btn-success mb-5" id="sendBtn">Send</button>
+                </div>
+            </div>
         </div>
     </body>    
 </html>

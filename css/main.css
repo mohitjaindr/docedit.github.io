@@ -1,2 +1,56 @@
-.added { background-color: lightgreen; }
-.removed { text-decoration: line-through; background-color: pink; }
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    font-size: 1.5rem;
+}
+
+.container {
+    max-width: 800px;
+}
+
+.form-label {
+    font-weight: 800;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    font-size: 1.6rem;
+
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border-color: #dee2e6;
+    font-size: 1.5rem;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#answerText {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.5rem;
+}
+
+.btn {
+    padding: 0.5rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+}
+
+#leftBtn, #rightBtn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+}
+
+.added { background-color: #d4edda; }
+.removed { text-decoration: line-through; background-color: #f8d7da; }
